@@ -1,0 +1,180 @@
+</html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <style media="screen">
+        * {
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bolder;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .navbar-default {
+            height: 100px;
+            padding-top: 23px;
+            padding-left: 70px;
+            border: 0;
+            border-radius: 0 !important;
+            background: #2c3e50;
+        }
+
+        .navbar-default .navbar-brand {
+            text-transform: uppercase;
+            font-size: 2em;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .navbar-default .navbar-brand:hover {
+            color: #18bc9c;
+            transition: color 0.3s ease;
+
+        }
+
+        .card {
+            padding: 10px;
+            padding-top: 20px;
+            background: #18bc9c;
+            border: 1px #c8c3ff solid;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px 3% 1% 3%;
+            height: 190px;
+            width: calc(80% * (1/3));
+        }
+
+        .card .card-title {
+            color: #02695e;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .card .card-link {
+            margin-top: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 90%;
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            transition: background-color 0.5s ease;
+        }
+
+        .card .card-link:hover {
+            color: #18bc9c;
+            background: white;
+            transition: background-color 0.5s ease;
+        }
+
+        .form-container {
+            height: 400px;
+            border-left: 1px solid gray;
+            padding-left: 30px;
+        }
+
+        .form-control {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/student/LoggedInstudent" class="navbar-brand">Portifolio Management</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+      <div class="col-xs-12 col-md-8">
+          <div class="row">
+              <% for(var i=0; i<portfolios.length; i++){%>
+                  <div class="card col-xs-4"style="height:300px;">
+                      <h4 class="card-title"> <%= portfolios[i].portfolioName%></h4>
+                      <h6 class="card-title"> <%= portfolios[i].username%></h6>
+                      <img src="<%portfolios[i].ProfileImage%>" alt="profile Pic">
+                      <a href="/Pro" class="btn btn-primary card-link">view and add projects</a>
+                  </div>
+              <% } %>
+          </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="form-container">
+        <!--  <button type="button" name="CreatePort" onclick="PortCreate()">Create Portfolio</button>
+          <button type="button" name="ProjectCreate" onclick="ProjectCreate()">Create Work</button>
+          <div class="">
+
+          </div>-->
+            <h3 style="margin-bottom:40px">Create Portfolio</h3>
+            <form class="form" action="/portCreate" method="post">
+              <div class="form-group">
+                <label for="ProfileImage">Profile image <i>(optional)</i></label>
+                <input type="img" name="ProfileImage" placeholder="Image">
+              </div>
+              <div class="form-group">
+                <label for="portfolioName">Portifolio Name</label>
+                <input type="text" name="portfolioName" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="Sname">Student name</label>
+                <input type="text" name="Sname" class="form-control">
+              </div>
+              <div class="form-group">
+              <label for="NoWork">Number of works</label>
+                <input type="text" name="NoWork" class="form-control" placeholder="enter number of works: min 1" ></input>
+              </div>
+
+              <button type="submit" name="submit">submit</button>
+            </form>
+        <!--  <div class="height: 400px;padding-left: 30px;" id="project" style="display: none;">
+            <h3 style="margin-bottom:40px;">Create Project</h3>
+            <form class="form" action="/Project" method="post">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="portfolioName">portfolioName</label>
+                <input type="text" name="portfolioName" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="description">description</label>
+                <input type="text" name="description" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="mobile">mobile number</label>
+                <input type="Number" name="mobile" class="form-control">
+              </div>
+              <button type="submit" name="submit">submit</button>
+
+            </form>-->
+
+          </div>
+
+        </div>
+
+      </div>
